@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-25 23:35:32
+ * @LastEditTime: 2022-02-27 23:54:29
  * @LastEditors: your name
  * @Description: 函数柯里化,用户固定某个函数的前面的参数，得到一个新的函数，新的函数调用时，接收剩余的参数
  */
