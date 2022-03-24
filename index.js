@@ -1,12 +1,14 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-03-14 23:37:57
+ * @LastEditTime: 2022-03-24 21:19:33
  * @LastEditors: your name
  * @Description: 入口文件
  */
 import { curry5, curry6 } from './js/curry.js';
 import clone from './js/clone.js';
 import Myset from './js/mySet.js';
+import throttle from './js/throttle.js';
+import debounce from './js/debounce.js';
 
 
 
@@ -14,13 +16,13 @@ import Myset from './js/mySet.js';
 
 // ==============================测试区域===================================
 // curry.js 测试
-function f(x, y, z) {
-    return (x + y) * z
-}
-var g = curry5(f, 2)
-var g6 = curry6(f, 2)
-console.log(g(3, 5));
-console.log(g6(3, 5));
+// function f(x, y, z) {
+//     return (x + y) * z
+// }
+// var g = curry5(f, 2)
+// var g6 = curry6(f, 2)
+// console.log(g(3, 5));
+// console.log(g6(3, 5));
 
 
 
@@ -51,3 +53,27 @@ console.log(g6(3, 5));
 // console.log(newArr[1] === arr[1]);  // false
 // console.log(newArr[2] === arr[2]);  // false
 
+// ==============================throttle测试区域===================================
+
+// function test() {
+//     console.log('a');
+// }
+// const handle = throttle(test, 1000);
+// window.onresize = function () {
+//     handle();
+// };
+// handle();
+// handle();
+// handle();
+// handle();
+// handle();
+// handle();
+// handle();
+
+// ==============================debounce测试区域===================================
+const handle = debounce(function (width) {
+    console.log(width);
+});
+window.onresize = function () {
+    handle(20);
+};
