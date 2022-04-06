@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-03-24 21:19:33
+ * @LastEditTime: 2022-04-06 23:05:06
  * @LastEditors: your name
  * @Description: 入口文件
  */
@@ -9,6 +9,7 @@ import clone from './js/clone.js';
 import Myset from './js/mySet.js';
 import throttle from './js/throttle.js';
 import debounce from './js/debounce.js';
+import myInstanceOf from './js/myInstanceOf.js';
 
 
 
@@ -71,9 +72,20 @@ import debounce from './js/debounce.js';
 // handle();
 
 // ==============================debounce测试区域===================================
-const handle = debounce(function (width) {
-    console.log(width);
-});
-window.onresize = function () {
-    handle(20);
-};
+// const handle = debounce(function (width) {
+//     console.log(width);
+// });
+// window.onresize = function () {
+//     handle(20);
+// };
+
+// ==============================myInstanceOf测试区域===================================
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+}
+const person = new Person('luoxi')
+console.log(myInstanceOf(person, Person)); // logs: true
+console.log(myInstanceOf(person, Object)); // logs: true
+console.log(myInstanceOf(person, Array)); // logs: false
