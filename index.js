@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-04-06 23:05:06
+ * @LastEditTime: 2022-05-06 23:03:10
  * @LastEditors: your name
  * @Description: 入口文件
  */
@@ -10,6 +10,7 @@ import Myset from './js/mySet.js';
 import throttle from './js/throttle.js';
 import debounce from './js/debounce.js';
 import myInstanceOf from './js/myInstanceOf.js';
+import createNew from './js/createNew.js';
 
 
 
@@ -80,12 +81,32 @@ import myInstanceOf from './js/myInstanceOf.js';
 // };
 
 // ==============================myInstanceOf测试区域===================================
-class Person {
-    constructor(name) {
-        this.name = name;
-    }
+// class Person {
+//     constructor(name) {
+//         this.name = name;
+//     }
+// }
+// const person = new Person('luoxi')
+// console.log(myInstanceOf(person, Person)); // logs: true
+// console.log(myInstanceOf(person, Object)); // logs: true
+// console.log(myInstanceOf(person, Array)); // logs: false
+
+// ==============================createNew测试区域===================================
+function Fun(age, name) {
+    this.age = age;
+    this.name = name;
 }
-const person = new Person('luoxi')
-console.log(myInstanceOf(person, Person)); // logs: true
-console.log(myInstanceOf(person, Object)); // logs: true
-console.log(myInstanceOf(person, Array)); // logs: false
+
+// function Fun(age, name) {
+//     this.age = age;
+//     this.name = name;
+//     return 1111;
+// }
+
+// function Fun(age, name) {
+//     this.age = age;
+//     this.name = name;
+//     return { a: 1 };
+// }
+
+console.log(new createNew(Fun, 18, "张三"));
