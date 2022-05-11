@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-05-06 23:03:10
+ * @LastEditTime: 2022-05-11 22:14:31
  * @LastEditors: your name
  * @Description: 入口文件
  */
@@ -11,6 +11,9 @@ import throttle from './js/throttle.js';
 import debounce from './js/debounce.js';
 import myInstanceOf from './js/myInstanceOf.js';
 import createNew from './js/createNew.js';
+import myBind from './js/myBind.js';
+import myCall from './js/myCall.js';
+import myApply from './js/myApply.js';
 
 
 
@@ -92,10 +95,10 @@ import createNew from './js/createNew.js';
 // console.log(myInstanceOf(person, Array)); // logs: false
 
 // ==============================createNew测试区域===================================
-function Fun(age, name) {
-    this.age = age;
-    this.name = name;
-}
+// function Fun(age, name) {
+//     this.age = age;
+//     this.name = name;
+// }
 
 // function Fun(age, name) {
 //     this.age = age;
@@ -109,4 +112,37 @@ function Fun(age, name) {
 //     return { a: 1 };
 // }
 
-console.log(new createNew(Fun, 18, "张三"));
+// console.log(new createNew(Fun, 18, "张三"));
+
+// ==============================myBind测试区域===================================
+// Function.prototype.myBind = myBind;
+// function fn1(a, b, c) {
+//     console.log('this', this);
+//     console.log(a, b, c);
+//     return a + b + c;
+// }
+// const f2 = fn1.myBind({ x: 100 }, 10, 20, 30);
+// const res = f2()
+// console.log('res', res); // 60
+
+// ==============================myCall测试区域===================================
+// Function.prototype.myCall = myCall;
+// function fn1(a, b, c) {
+//     console.log('this', this);
+//     console.log(a, b, c);
+//     return a + b + c;
+// }
+// const res = fn1.myCall({ x: 100 }, 10, 20, 30);
+// // const res = f2()
+// console.log('res', res); // 60
+
+// ==============================createNew测试区域===================================
+Function.prototype.myApply = myApply;
+function fn1(a, b, c) {
+    console.log('this', this);
+    console.log(a, b, c);
+    return a + b + c;
+}
+const res = fn1.myApply({ x: 100 }, [10, 20, 30]);
+// const res = f2()
+console.log('res', res); // 60
